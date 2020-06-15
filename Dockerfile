@@ -1,10 +1,12 @@
 FROM maven:3-jdk-8-alpine
 
-WORKDIR /app
+ENV APP_ROOT=/app
 
-COPY . /app
-RUN mvn -Duser.home=/app package && chgrp -R 0 /app && chmod -R g+rwX /app
+WORKDIR $APP_ROOT
+
+COPY . $APP_ROOT
+RUN mvn -Duser.home=$APP_ROOT package && chgrp -R 0 $APP_ROOT && chmod -R g+rwX $APP_ROOT
 
 ENV PORT 5000
 EXPOSE $PORT
-CMD [ "sh", "-c", "mvn -Duser.home=/app -Dserver.port=${PORT} spring-boot:run" ]
+CMD [ "sh", "-c", "mvn -Duser.home=$APP_ROOT -Dserver.port=$PORT spring-boot:run" ]
