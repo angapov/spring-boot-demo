@@ -1,9 +1,9 @@
 FROM maven:3-jdk-8-alpine
 
-WORKDIR /usr/src/app
+WORKDIR /app
 
-COPY . /usr/src/app
-RUN mvn package
+COPY . /app
+RUN mvn package && chgrp -R 0 /app && chmod -R g+rwX /app
 
 ENV PORT 5000
 EXPOSE $PORT
