@@ -1,0 +1,4 @@
+apiVersion: v1
+description: OpenShift app Helm chart
+name: test-app
+version: 0.0.1

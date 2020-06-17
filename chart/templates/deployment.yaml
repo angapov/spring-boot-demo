@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ ${CI_PROJECT_PATH_SLUG} }}
+  labels:
+    app: {{ ${CI_PROJECT_PATH_SLUG} }}
+    release: {{ ${CI_ENVIRONMENT_SLUG} }}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: {{ ${CI_PROJECT_PATH_SLUG} }}
+  template:
+    metadata:
+      labels:
+        app: {{ ${CI_PROJECT_PATH_SLUG} }}
+    spec:
+      containers:
+      - name: {{ ${CI_PROJECT_PATH_SLUG} }}
+        image: {{ ${CI_APPLICATION_REPOSITORY:-$CI_REGISTRY_IMAGE/$CI_COMMIT_REF_SLUG} }}
+        imagePullPolicy: ifNotPresent
+        env:
+        ports:
+        - name: web
+          containerPort: 5000
