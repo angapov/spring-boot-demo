@@ -30,6 +30,7 @@ variables:
   DOCKER_TLS_CERTDIR: ""
   STAGING_ENABLED: "true"
   APP_ROOT: /app
+  ROLLOUT_STATUS_DISABLED: true
   HELM_UPGRADE_EXTRA_ARGS: >
     --set name=$CI_PROJECT_PATH_SLUG
     --set release=$CI_ENVIRONMENT_SLUG
