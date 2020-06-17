@@ -3,8 +3,8 @@ kind: Deployment
 metadata:
   name: {{ .Values.name }}
   annotations:
-    {{- if .Values.gitlab.app }}app.gitlab.com/app: {{ .Values.gitlab.app | quote }}{{ end -}}
-    {{- if .Values.gitlab.env }}app.gitlab.com/env: {{ .Values.gitlab.env | quote }}{{ end -}}
+    app.gitlab.com/app: {{ .Values.gitlab.app | quote }}
+    app.gitlab.com/env: {{ .Values.gitlab.env | quote }}
   labels:
     app: {{ .Values.name }}
     release: {{ .Values.release }}

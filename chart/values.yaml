@@ -1,4 +1,4 @@
-name: testapp
+name:
 image:
   repository: testimage
   tag: testtag
