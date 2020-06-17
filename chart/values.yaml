@@ -6,3 +6,8 @@ image:
   secrets:
   - gitlab-registry
 replicas: 1
+gitlab:
+  app:
+  env:
+  envName:
+  envURL:
