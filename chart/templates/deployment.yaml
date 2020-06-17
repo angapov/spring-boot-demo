@@ -23,3 +23,5 @@ spec:
         ports:
         - name: web
           containerPort: 5000
+      imagePullSecrets:
+{{ toYaml .Values.image.secrets | indent 8 }}

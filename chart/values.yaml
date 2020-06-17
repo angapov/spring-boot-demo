@@ -3,4 +3,6 @@ image:
   repository: testimage
   tag: testtag
   pullPolicy: IfNotPresent
+  secrets:
+  - gitlab-registry
 replicas: 1
