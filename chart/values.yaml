@@ -2,5 +2,5 @@ name: testapp
 image:
   repository: testimage
   tag: testtag
-  pullPolicy: ifNotPresent
+  pullPolicy: IfNotPresent
 replicas: 1
