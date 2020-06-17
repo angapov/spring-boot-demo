@@ -32,10 +32,15 @@ variables:
   APP_ROOT: /app
   ROLLOUT_STATUS_DISABLED: "true"
   HELM_UPGRADE_EXTRA_ARGS: >
-    --set name=$CI_PROJECT_PATH_SLUG
-    --set release=$CI_ENVIRONMENT_SLUG
-    --set image.repository=$CI_REGISTRY_IMAGE/$CI_COMMIT_REF_SLUG
-    --set image.tag=$CI_COMMIT_SHA
+    --set name="$CI_PROJECT_PATH_SLUG"
+    --set release="$CI_ENVIRONMENT_SLUG"
+    --set image.repository="$CI_REGISTRY_IMAGE/$CI_COMMIT_REF_SLUG"
+    --set image.tag="$CI_COMMIT_SHA"
+    --set gitlab.app="$CI_PROJECT_PATH_SLUG"
+    --set gitlab.env="$CI_ENVIRONMENT_SLUG"
+    --set gitlab.envName="$CI_ENVIRONMENT_NAME"
+    --set gitlab.envURL="$CI_ENVIRONMENT_URL"
+
     
 cache:
   paths:
