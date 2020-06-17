@@ -27,7 +27,7 @@ stages:
 my:
   stage: my
   script:
-  - apt update && apt install -y gettext
+  - apt -qq update && apt install -qq -y gettext
   - envsubst <chart/templates/deployment.yaml
 
 variables:
