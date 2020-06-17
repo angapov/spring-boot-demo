@@ -1,0 +1,6 @@
+name: testapp
+image:
+  repository: testimage
+  tag: testtag
+  pullPolicy: ifNotPresent
+replicas: 1

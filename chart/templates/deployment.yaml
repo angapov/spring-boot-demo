@@ -1,24 +1,24 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ ${CI_PROJECT_PATH_SLUG} }}
+  name: {{ .Values.name }}
   labels:
-    app: {{ ${CI_PROJECT_PATH_SLUG} }}
-    release: {{ ${CI_ENVIRONMENT_SLUG} }}
+    app: {{ .Values.name }}
+    release: {{ .Values.release }}
 spec:
-  replicas: 1
+  replicas: {{ .Values.replicas }}
   selector:
     matchLabels:
-      app: {{ ${CI_PROJECT_PATH_SLUG} }}
+      app: {{ .Values.name }}
   template:
     metadata:
       labels:
-        app: {{ ${CI_PROJECT_PATH_SLUG} }}
+        app: {{ .Values.name }}
     spec:
       containers:
-      - name: {{ ${CI_PROJECT_PATH_SLUG} }}
-        image: {{ ${CI_APPLICATION_REPOSITORY:-$CI_REGISTRY_IMAGE/$CI_COMMIT_REF_SLUG} }}
-        imagePullPolicy: ifNotPresent
+      - name: {{ .Values.name }}
+        image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
+        imagePullPolicy: {{ .Values.image.pullPolicy }}
         env:
         ports:
         - name: web
