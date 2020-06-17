@@ -42,6 +42,6 @@ cache:
     - ${APP_ROOT}/.m2
 
 include:
-  - template: Jobs/Build.gitlab-ci.yml
-  - template: Security/Container-Scanning.gitlab-ci.yml
-  - template: Jobs/Deploy.gitlab-ci.yml
+#  - template: Jobs/Build.gitlab-ci.yml
+#  - template: Security/Container-Scanning.gitlab-ci.yml
+#  - template: Jobs/Deploy.gitlab-ci.yml
